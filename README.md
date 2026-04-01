@@ -1,11 +1,12 @@
 # Two-Tap-plus
 **Team:** Mia Frattasio, Emma Herman, Felicia Moua, Amanda Robinson, Ryan Vernick
+**Attack Team:** Kyle Schmottlach, Lucia Cover, James Ly, Philip Walsh, Shannon Miranda
 
-**Problem:** A traditional LFSR has the Berklekamp-Massey vulnaurability, which allows attackers to reverse-engineer the LFSR's internal state from the reconstruction of the minimal polynomial.
+**Problem:** A traditional LFSR has the Berklekamp-Massey vulnerability, which allows attackers to reverse-engineer the LFSR's internal state from the reconstruction of the minimal polynomial.
 
 **Tweak:** A more dynamic feedback selection with variable taps and three LFSRs. 
 
-**Logic:** To mitigate the vulnaurabilities of the LFSRs, we created a system in which three LFSRs would work to create more dynamic outputs. 
+**Logic:** To mitigate the vulnerabilities of the LFSRs, we created a system in which three LFSRs would work to create more dynamic outputs. 
 LFSR 1 acts as the controller and signals which taps the other LFSRs should use. LFSR 2 had two sets of taps that it chooses between. When LFSR 1 or 2 reaches its period, LFSR 3 provides a new gate. In the case of LFSR 2, two new gates are provided by LFSR 3.  
 
 **Performace:** Our system is much more secure, having a larger period and more complexity than a normal LFSR, and beats the Berlekamp Massey Algorithm.
