@@ -178,8 +178,16 @@ int main() {
       }
 
       if(outputBits == KNOWN_OUTPUT_BITS) {
-        printf("LFSR1 Key: %d\n", LFSR1_INITIAL_STATE);
-        printf("LFSR2 Key: %d\n", LFSR2_INITIAL_STATE);
+        char lfsr1KeyString[10] = {'\0'};
+        char lfsr2KeyString[10] = {'\0'};
+
+        for(int i = 8; i >= 0; i--) {
+          lfsr1KeyString[i] = ((LFSR1_INITIAL_STATE >> (8 - i)) & 0x1) + 0x30;
+          lfsr2KeyString[i] = ((LFSR2_INITIAL_STATE >> (8 - i)) & 0x1) + 0x30;
+        }
+
+        printf("LFSR1 Key: %d = 0b%s\n", LFSR1_INITIAL_STATE, lfsr1KeyString);
+        printf("LFSR2 Key: %d = 0b%s\n", LFSR2_INITIAL_STATE, lfsr2KeyString);
         printf("Yippee! GOT YA 😛\n");
         return 0;
       }
